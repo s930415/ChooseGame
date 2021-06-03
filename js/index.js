@@ -29,10 +29,14 @@ var app = new Vue({
   methods: {
     chose(option) {
       if (this.exams[this.exam_index].correct === option) {
+        right_ring.pause();
+        right_ring.currentTime = 0;
         this.score += 1;
-        alert("得分!!\n分數:" + this.score);
+        console.log("得分!!\n分數:" + this.score);
         right_ring.play();
       } else {
+        wrong_ring.pause();
+        wrong_ring.currentTime = 0;
         wrong_ring.play();
       }
 

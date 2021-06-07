@@ -1,30 +1,12 @@
 var app = new Vue({
   el: "#app",
   data: {
-    name: "Mike",
+    name: "",
     score: 0,
     exam_index: 0,
     message: 123,
-    exams: [
-      {
-        title: "what is this fruit?",
-        img: "assets/orange.jpg",
-        options: ["banana", "apple", "orange", "melon"],
-        correct: "orange"
-      },
-      {
-        title: "what is this fruit?",
-        img: "assets/banana.jpg",
-        options: ["banana", "apple", "orange", "melon"],
-        correct: "banana"
-      },
-      {
-        title: "what is this fruit?",
-        img: "assets/lemon.jpg",
-        options: ["banana", "apple", "orange", "lemon"],
-        correct: "lemon"
-      }
-    ]
+    exams: [{ img: "" }],
+    answers_count: 0
   },
   methods: {
     chose(option) {
@@ -39,13 +21,37 @@ var app = new Vue({
         wrong_ring.currentTime = 0;
         wrong_ring.play();
       }
-
       if (this.exams.length - 1 > this.exam_index) {
         this.exam_index = this.exam_index + 1;
       } else {
         this.exam_index = 0;
       }
       shuffleArray(this.exams[this.exam_index].options);
+    },
+    nextPage() {
+      document.getElementsByClassName("intro")[0].classList.toggle("d-none");
+      document
+        .getElementsByClassName("game_area")[0]
+        .classList.toggle("d-none");
+      this.getData();
+    },
+    getData() {
+      let api = new XMLHttpRequest();
+      api.onload = (e) => {
+        let new_exam = JSON.parse(api.responseText);
+        if (this.exams[0].img == "") {
+          this.exams = new_exam;
+        } else if (Array.isArray(new_exam)) {
+          this.exams = this.exams.concat(new_exam);
+        } else {
+          this.exams.push(new_exam);
+        }
+      };
+      api.open(
+        "GET",
+        "https://script.google.com/macros/s/AKfycby8R-9dIwq0Dy7qIOl10B4I9bg8s2ZHwX-3xN0_FXlE656uJsKnpDADyjPEY-tCL9magQ/exec"
+      );
+      api.send();
     }
   }
 });

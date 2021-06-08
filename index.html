@@ -26,11 +26,11 @@
             <p class="">{{ exams[exam_index].title }}</p>
           </div>
           <!--答題後按鈕-->
-          <button class="btn_01">Next</button>
-          <button class="btn_02">Answer</button>
+          <button class="btn_01 chosed d-none" v-on:click="nextExam()">Next</button>
+          <button class="btn_02 chosed d-none">Answer</button>
         </div>
         <div class="down">
-          <div class="container_01 d-none">
+          <div class="container_01" >
             <!--選項-->
             <template v-for="option in exams[exam_index].options">
               <div class="card" v-on:click="chose(option)">
@@ -39,13 +39,12 @@
               </div>
             </template>
           </div>
-          <div class="container_02">
+          <div class="container_02 d-none">
             <button class="btn_03"></button>
           </div>
         </div>
       </div>
     </div>
-    
     <script src="js/index.js"></script>
   </body>
 </html>

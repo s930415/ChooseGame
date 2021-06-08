@@ -16,10 +16,25 @@ var app = new Vue({
         this.score += 1;
         console.log("得分!!\n分數:" + this.score);
         right_ring.play();
+        event.currentTarget.classList.add('correct');
+        document.getElementsByClassName('btn_01')[0].classList.toggle('d-none');
       } else {
         wrong_ring.pause();
         wrong_ring.currentTime = 0;
         wrong_ring.play();
+        event.currentTarget.classList.add('wrong');
+        let chosed_list = document.getElementsByClassName('chosed');
+        for(let i = 0 ; chosed_list.length > i ; i++){
+          chosed_list[i].classList.toggle('d-none');
+        }
+      }
+    },
+    nextExam(){
+      document.getElementsByClassName('btn_01')[0].classList.toggle('d-none');
+      card_list = document.getElementsByClassName('card');
+      for(let i = 0 ; card_list.length > i ; i++){
+        card_list[i].classList.remove('correct');
+        card_list[i].classList.remove('wrong');
       }
       if (this.exams.length - 1 > this.exam_index) {
         this.exam_index = this.exam_index + 1;
@@ -27,6 +42,9 @@ var app = new Vue({
         this.exam_index = 0;
       }
       shuffleArray(this.exams[this.exam_index].options);
+    },
+    veiwAnswer(){
+      
     },
     nextPage() {
       document.getElementsByClassName("intro")[0].classList.toggle("d-none");

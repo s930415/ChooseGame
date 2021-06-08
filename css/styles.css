@@ -166,7 +166,7 @@ body {
   height: 300px;
   width: 600px;
   left: calc(50% - 550px);
-  top: -160px;
+  top: -230px;
   display: flex;
 }
 
@@ -253,4 +253,8 @@ body {
 
 .d-none {
   display: none;
+}
+
+.v-hide{
+  visibility: hidden;
 }

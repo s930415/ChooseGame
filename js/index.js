@@ -17,7 +17,8 @@ var app = new Vue({
         console.log("得分!!\n分數:" + this.score);
         right_ring.play();
         event.currentTarget.classList.add('correct');
-        document.getElementsByClassName('btn_01')[0].classList.toggle('d-none');
+        document.getElementsByClassName('btn_01')[0].classList.remove('v-hide');
+        document.getElementsByClassName('btn_02')[0].classList.add('v-hide');
       } else {
         wrong_ring.pause();
         wrong_ring.currentTime = 0;
@@ -25,12 +26,13 @@ var app = new Vue({
         event.currentTarget.classList.add('wrong');
         let chosed_list = document.getElementsByClassName('chosed');
         for(let i = 0 ; chosed_list.length > i ; i++){
-          chosed_list[i].classList.toggle('d-none');
+          chosed_list[i].classList.remove('v-hide');
         }
       }
     },
     nextExam(){
-      document.getElementsByClassName('btn_01')[0].classList.toggle('d-none');
+      document.getElementsByClassName('btn_01')[0].classList.add('v-hide');
+      document.getElementsByClassName('btn_02')[0].classList.add('v-hide');
       card_list = document.getElementsByClassName('card');
       for(let i = 0 ; card_list.length > i ; i++){
         card_list[i].classList.remove('correct');
@@ -44,7 +46,7 @@ var app = new Vue({
       shuffleArray(this.exams[this.exam_index].options);
     },
     veiwAnswer(){
-      
+
     },
     nextPage() {
       document.getElementsByClassName("intro")[0].classList.toggle("d-none");

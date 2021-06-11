@@ -27,7 +27,7 @@
           </div>
           <!--答題後按鈕-->
           <button class="btn_01 chosed v-hide" v-on:click="nextExam()">Next</button>
-          <button class="btn_02 chosed v-hide">Answer</button>
+          <button class="btn_02 chosed v-hide"  v-on:click="veiwAnswer()">Answer</button>
         </div>
         <div class="down">
           <div class="container_01" >
@@ -40,7 +40,6 @@
             </template>
           </div>
           <div class="container_02 d-none">
-            <button class="btn_03"></button>
           </div>
         </div>
       </div>

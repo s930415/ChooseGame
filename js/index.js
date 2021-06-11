@@ -46,7 +46,12 @@ var app = new Vue({
       shuffleArray(this.exams[this.exam_index].options);
     },
     veiwAnswer(){
-
+      document
+        .getElementsByClassName("container_02")[0]
+        .classList.remove("d-none");
+        document
+        .getElementsByClassName("container_01")[0]
+        .classList.add("d-none");
     },
     nextPage() {
       document.getElementsByClassName("intro")[0].classList.toggle("d-none");

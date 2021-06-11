@@ -181,7 +181,10 @@ body {
   background: rgba(255, 100, 100);
   backdrop-filter: blur(4px);
   border-radius: 36px;
+  font-family: Cabin Sketch;
+  font-size: 72px;
 }
+
 /* 題目放置匡 */
 .container_03 {
   position: relative;

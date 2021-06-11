@@ -76,6 +76,7 @@ var app = new Vue({
       this.getData();
     },
     goEndPage() {
+      document.getElementsByClassName('namebox')[0].innerText =  document.getElementsByClassName('namebox')[0].innerText + this.name;
       document.getElementsByClassName("intro")[0].classList.toggle("d-none");
       document.getElementsByClassName("game_area")[0].classList.toggle("d-none");
     },

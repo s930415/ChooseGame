@@ -42,6 +42,12 @@ var app = new Vue({
     nextExam() {
       this.answers_lock = false;
       this.lock = false;
+      document
+      .getElementsByClassName("container_02")[0]
+      .classList.add("d-none");
+    document
+      .getElementsByClassName("container_01")[0]
+      .classList.remove("d-none");
       if (this.answers_count <= 10) {
         document.getElementsByClassName('btn_01')[0].classList.add('v-hide');
         document.getElementsByClassName('btn_02')[0].classList.add('v-hide');

@@ -7,7 +7,7 @@ body {
   width: 100vw;
   height: 100vh;
   background-color: rgba(255, 100, 100, 0.97);
-  background-image: url("assets/bg02.png");
+  background-image: url("../assets/bg02.png");
 }
 
 /* Intro Page */
@@ -17,7 +17,7 @@ body {
   margin: auto;
   width: 1440px;
   height: 900px;
-  background-image: url("assets/bg03.png");
+  background-image: url("../assets/bg03.png");
 }
 .namebox {
   position: relative;

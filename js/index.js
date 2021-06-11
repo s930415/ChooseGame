@@ -42,7 +42,7 @@ var app = new Vue({
     nextExam() {
       this.answers_lock = false;
       this.lock = false;
-      if (this.answers_count >= 10) {
+      if (this.answers_count <= 10) {
         document.getElementsByClassName('btn_01')[0].classList.add('v-hide');
         document.getElementsByClassName('btn_02')[0].classList.add('v-hide');
         card_list = document.getElementsByClassName('card');

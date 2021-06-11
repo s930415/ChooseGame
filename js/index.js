@@ -106,6 +106,6 @@ function shuffleArray(inputArray) {
 }
 
 var right_ring = document.createElement("audio");
-right_ring.src = "/audio/correct-answer.mp3";
+right_ring.src = "audio/correct-answer.mp3";
 var wrong_ring = document.createElement("audio");
-wrong_ring.src = "/audio/wrong-answer.mp3";
+wrong_ring.src = "audio/wrong-answer.mp3";

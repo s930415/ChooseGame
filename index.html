@@ -15,6 +15,7 @@
         <p class="namebox">Name:<input v-model="name" type="text"></input></p>
         <p class="scorebox">Score:{{score}}</p>
         <button class="btn_04" v-on:click="nextPage()">Next</button>
+        <button class="btn_04 d-none" v-on:click="restart()">Restart</button>
       </div>
       <div class="game_area d-none">
         <!--題目-->
@@ -40,7 +41,7 @@
             </template>
           </div>
           <div class="container_02 d-none">
-            <p>This is {{exams.correct}}</p>
+            <p>This is {{exams[exam_index].correct}}</p>
           </div>
         </div>
       </div>

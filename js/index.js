@@ -11,6 +11,7 @@ var app = new Vue({
     answers_lock: false,
   },
   methods: {
+    //選擇後處理
     chose(option) {
       if (!this.lock) {
         if (this.exams[this.exam_index].correct === option) {
@@ -39,6 +40,7 @@ var app = new Vue({
       }
       this.answers_lock = true;
     },
+    //下一題
     nextExam() {
       this.answers_lock = false;
       this.lock = false;
@@ -66,6 +68,7 @@ var app = new Vue({
         this.goEndPage();
       }
     },
+    //觀看答案處理
     veiwAnswer() {
       document
         .getElementsByClassName("container_02")[0]
@@ -74,18 +77,24 @@ var app = new Vue({
         .getElementsByClassName("container_01")[0]
         .classList.add("d-none");
     },
+    //切換頁面用
     nextPage() {
       document.getElementsByClassName("intro")[0].classList.toggle("d-none");
       document
         .getElementsByClassName("game_area")[0]
         .classList.toggle("d-none");
       this.getData();
+      btns = document.getElementsByClassName('btn_04');
+      for (let i = 0; btns.length > i; i++) {
+        btns[i].classList.toggle('d-none');
+      }
     },
     goEndPage() {
-      document.getElementsByClassName('namebox')[0].innerText =  document.getElementsByClassName('namebox')[0].innerText + this.name;
+      document.getElementsByClassName('namebox')[0].innerText =  "Name:" + this.name;
       document.getElementsByClassName("intro")[0].classList.toggle("d-none");
       document.getElementsByClassName("game_area")[0].classList.toggle("d-none");
     },
+    //取得資料
     getData() {
       let api = new XMLHttpRequest();
       api.onload = (e) => {
@@ -103,6 +112,12 @@ var app = new Vue({
         "https://script.google.com/macros/s/AKfycby8R-9dIwq0Dy7qIOl10B4I9bg8s2ZHwX-3xN0_FXlE656uJsKnpDADyjPEY-tCL9magQ/exec"
       );
       api.send();
+    },
+    restart(){
+      this.answers_count= 0;
+      this.score = 0;
+      this.nextPage();
+      this.nextExam();
     }
   }
 });
